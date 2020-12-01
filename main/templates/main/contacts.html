@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block description %}Erickson Coaching. Коучинг Ростов на Дону. Эриксон коучинг{% endblock description %}
+{% block keywords %}Erickson Coaching. Коучинг Ростов на Дону. Эриксон коучинг{% endblock keywords %}
+{% block title %}Erickson Coaching - Контакты{% endblock title %}
+{% block block_content %}
+<section class="contacts">
+    <div class="management_top">
+        <div class="px-2 text-center container h-100 d-flex flex-column justify-content-center">
+          <h1>Наши контакты</h1>
+        </div>
+      </div>
+      <div class="cont-1 container mt-5">
+          <h3>Если хотите задать вопрос</h3>
+          <h5>можете написать</h5>
+          <h3 class="font_M700">questions@ericksonrnd.ru</h3>
+      </div>
+      <div class="cont-2 container mt-5">
+        <h5>Телефон для связи</h5>
+        <h3 class="font_M700">+7 918 587 09 89</h3>
+      </div>
+    <!--CONTACT-->
+    <a name="contact"></a>
+    <div class="container-fluid mt-5">
+        <div class="container contact_block border py-4">
+            <div class="text-center pb-5">
+                <h1 class="title_block pb-2">Оставьте заявку и мы сами с вами свяжемся</h1>
+            </div>
+            <form action="/" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group py-3">
+                            {{ form.subject.errors }}
+	                        {{ form.subject }}
+<!--                            <input type="text" name="name" class="form-control" placeholder="Введите имя">-->
+                        </div>
+                        <div class="form-group py-3">
+                            {{ form.phone.errors }}
+                            {{ form.phone }}
+<!--                            <input type="tel" name="tel" class="form-control" placeholder="Введите телефон">-->
+                        </div>
+                        <div class="form-group py-3">
+                            {{ form.sender.errors }}
+                            {{ form.sender }}
+<!--                            <input type="email" name="email" class="form-control" placeholder="Введите электронную почту">-->
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group py-3">
+                            {{ form.message.errors }}
+                            {{ form.message }}
+<!--                            <textarea class="form-control" name="text" placeholder="Задайте нам вопрос"></textarea>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <button class="btn py-2 px-5 my-2 my-sm-0 px-4" type="submit">
+                        Оставить заявку
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--END CONTACT-->
+</section>
+{% endblock block_content %}
